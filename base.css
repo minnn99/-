@@ -1,0 +1,1211 @@
+/* ここはCSSの基本設定です。 */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  color: #1a1a1a;
+  overflow-x: hidden;
+  height: 100dvh;
+  line-height: 1.5rem;
+  font-size: 100%;
+  overflow: -moz-hidden-unscrollable;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+nav {
+  display: block;
+}
+
+div {
+  display: block;
+}
+
+p {
+  word-break: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  font-feature-settings: "palt" 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+h2 {
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+section {
+  display: block;
+  padding: 7.5rem 0 7.5rem 0;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem 0 2.5rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* 上の部分は気にせずここから書く */
+
+/*@@@@@@@@@@@@ header @@@@@@@@@@@@*/
+header {
+  background-color: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transform: translateY(-100%);
+  animation: navSlideDown 1.5s ease 1s forwards;
+  opacity: 0;
+}
+
+.header-inner {
+  max-width: calc(1120px + 2.5rem * 2);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem;
+}
+
+.header .logo {
+  width: 100%;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.header-inner ul li a {
+  transition: all 0.3s ease;
+}
+
+.header-inner ul li a:hover {
+  color: #2da690;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+/*@@@@@@@@@@@@ hero @@@@@@@@@@@@*/
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  object-fit: cover;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero p {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  animation: slideUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+.hero p strong {
+  color: #fce244;
+}
+
+/*@@@@@@@@@@@@ Our-service @@@@@@@@@@@@*/
+.our-service-bg,
+.news-bg,
+.recruit-bg {
+  background: rgba(0, 0, 0, 0.03) url("http://educure.linew.co.jp/wp-content/themes/linew/library/images/ptn01.png");
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3.5rem;
+  line-height: 2.5rem;
+  opacity: 0;
+}
+
+.title::before {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 2px;
+  background-color: #2da690;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.our-service-list {
+  margin: 3.5rem auto;
+}
+
+.our-service-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto 3.5rem;
+  padding: 0;
+}
+
+.our-service-list li > img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.our-service-list li .img {
+  overflow: hidden;
+  margin: 0 calc(50% - 50vw);
+  width: 50vw;
+  position: static;
+  z-index: 1;
+  opacity: 0;
+}
+
+.our-service-list .text {
+  opacity: 0;
+}
+
+.our-service-list li:nth-child(2) .text img {
+  margin: 2.5rem 0 0 0;
+}
+
+.our-service-list li:nth-child(2) .img {
+  order: 2;
+}
+
+.our-service-list li:nth-child(2) .text {
+  order: 1;
+  margin: 0;
+}
+
+.text {
+  position: static;
+  z-index: 2;
+  width: 60%;
+  margin: 2.5rem 0 2.5rem -20%;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.text a {
+  padding: 2.5rem;
+  display: block;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.text h2 {
+  margin: 0 0 2.5rem;
+  font-size: 2.66667rem;
+  font-weight: 700;
+  line-height: 3.5rem;
+}
+
+.text img {
+  height: 100%;
+  max-height: 4rem;
+  object-fit: contain;
+  overflow: clip;
+}
+
+.text .main-title {
+  margin: 24px 0 16px;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.5rem;
+}
+
+.text .sub-title {
+  margin: 16px 0 16px 0;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.text .details {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.our-service-list .text .details-btn {
+  transition: all 0.3s ease;
+}
+
+.our-service-list .text:hover .details-btn {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+.details-btn {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  text-align: left;
+  color: #2da690;
+  opacity: 0.3;
+}
+
+.other-service,
+.other-news,
+.more-info {
+  display: block;
+  text-align: right;
+  margin-top: 3.5rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.other-service:hover,
+.other-news:hover,
+.more-info:hover {
+  color: #2da690;
+  #arrow-right {
+    transform: translateX(4px);
+  }
+}
+
+#arrow-right {
+  color: #2da690;
+  font-size: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+/*@@@@@@@@@@@@ Our vision @@@@@@@@@@@@*/
+.our-vision-bg {
+  background: rgba(0, 0, 0, 0.03) url("http://educure.linew.co.jp/wp-content/uploads/2021/05/bg01.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.ov-sub-title {
+  font-size: 2.45rem;
+  line-height: 3.5rem;
+  font-weight: 400;
+  margin: 3.5rem auto;
+  text-align: center;
+  opacity: 0;
+}
+
+.ov-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: center;
+  opacity: 0;
+}
+
+.ov-text {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.ov-text:first-child {
+  padding-left: 0;
+}
+
+.ov-text:last-child {
+  border-right: none;
+}
+
+.ov-text-main {
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+  line-height: 2.5rem;
+  color: #2da690;
+  font-weight: 700;
+}
+
+.ov-text-sub {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/*@@@@@@@@@@@@ News @@@@@@@@@@@@*/
+.news-list article {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  opacity: 0;
+}
+
+.news-list article:last-child {
+  border-bottom: none;
+}
+
+.news-list article .img {
+  width: 17%;
+}
+
+.news-list article .img figure {
+  padding-top: 50%;
+  position: relative;
+  margin: 0;
+  display: block;
+}
+
+.news-list article .img figure img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-list article figure {
+  margin: 0;
+  padding-top: 50%;
+  position: relative;
+  display: block;
+}
+
+.news-list article figure a {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.news-list .txt {
+  margin: 0 0 0 1rem;
+  width: 100%;
+}
+
+.news-list .txt .meta {
+  display: flex;
+  font-size: 0.8rem;
+  line-height: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+.news-list .txt .meta time {
+  color: rgba(0, 0, 0, 0.34);
+  margin: 0 1rem 0 0;
+}
+
+.news-list .txt .meta .post-categories {
+  margin: 0;
+  display: flex;
+  font-weight: 700;
+}
+
+.post-categories li {
+  margin: 0 0.5rem 0 0;
+}
+
+.news-list .txt .entry-title {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.entry-title a {
+  color: #6b7280;
+}
+
+/*@@@@@@@@@@@@ About us @@@@@@@@@@@@*/
+.about-us-bg {
+  background: rgba(0, 0, 0, 0.03) url("http://educure.linew.co.jp/wp-content/uploads/2021/05/bg02.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.about-us-info {
+  display: flex;
+  text-align: left;
+}
+
+.info-txt {
+  width: 100%;
+  margin: 0 2.5rem 0 0;
+  opacity: 0;
+}
+
+table tr {
+  display: flex;
+  width: 100%;
+}
+
+table tr td:first-child {
+  max-width: 17%;
+  border-bottom: 1px solid #2da690;
+  margin: 0 0.5rem 0 0;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+table tr td:last-child {
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.54);
+  padding: 1rem 0;
+  width: 100%;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tr td a {
+  transition: all 0.3s ease;
+}
+
+table tr td a:hover {
+  color: #136d5d;
+}
+
+.info-img {
+  margin: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.info-img figure {
+  height: 100%;
+  margin: 0;
+  display: block;
+}
+
+.info-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+table tr a {
+  display: block;
+  margin: 0.5rem 0 0;
+  color: #2da690;
+}
+
+table tr a i {
+  vertical-align: middle;
+}
+
+/* @@@@@@@@@@@@ Recruit @@@@@@@@@@@@*/
+.recruit-txt {
+  font-size: 1.3rem;
+  text-align: center;
+  line-height: 2rem;
+  margin: 3.5rem auto;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.recruit-txt p strong {
+  color: #2da690;
+}
+
+.recruit-job {
+  background-color: #fff;
+  text-align: center;
+  padding: 2.5rem;
+  opacity: 0;
+}
+
+.recruit-job > h2 {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 2.5rem;
+}
+
+.job-list {
+  margin: 2.5rem auto 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.job-list li {
+  width: 100%;
+  max-width: 25%;
+  margin: 0 2rem 0 0;
+  line-height: 1;
+}
+
+.job-list li a {
+  opacity: 0;
+}
+
+.job-list li:last-child {
+  margin: 0;
+}
+
+.job-list li a {
+  width: 100%;
+  background-color: #fff;
+  border: solid 1px rgba(0, 0, 0, 0.12);
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.job-list li a i {
+  color: #2da690;
+  font-size: 1.1rem;
+  display: inline-block;
+  line-height: 1;
+  font-weight: 900;
+  vertical-align: middle;
+}
+
+.job-list li a:hover {
+  background-color: #2da690;
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.job-list li:hover i {
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+/*@@@@@@@@@@@@ footer @@@@@@@@@@@@*/
+footer {
+  background-color: #4d4d4d;
+  padding: 3.5rem 0;
+  color: #f8f9fa;
+  display: block;
+}
+
+.footer-inner {
+  max-width: calc(1120px + 2.5rem * 2);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+}
+
+.company-info,
+.nav-area {
+  width: 100%;
+}
+
+.company-info .footer-logo {
+  max-height: 50px;
+  margin: 0 0 1.5rem;
+}
+
+.company-info .address {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.company-info .source {
+  font-size: 0.8rem;
+  line-height: 1.25rem;
+  color: rgba(255, 255, 255, 0.34);
+  margin: 0;
+}
+
+.nav-area {
+  text-align: right;
+}
+
+.nav-area .navigation {
+  display: block;
+}
+
+.nav-area ul {
+  justify-content: flex-end;
+}
+
+.footer-nav {
+  margin: 0;
+  display: flex;
+}
+
+.footer-nav li:hover {
+  color: #2da690;
+  transition: all 0.3s ease;
+}
+
+.nav-area ul li {
+  display: inline-block;
+  margin: 0 2rem 0 0;
+}
+
+.footer-nav li:last-child {
+  margin: 0;
+}
+
+.os-list {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.os-list li {
+  display: block;
+  width: auto;
+  margin: 0 1rem 0 0;
+}
+
+.os-list li:last-child {
+  margin: 0;
+}
+
+.os-list .ft-btn {
+  font-size: 0.8rem;
+  height: auto;
+  font-weight: 700;
+  line-height: 1.25rem;
+  padding: 0.5rem 1.5rem;
+  border: solid 1px rgba(255, 255, 255, 0.12);
+  display: inline-block;
+}
+
+.os-list li i {
+  color: #2da690;
+  margin-left: 0.5rem;
+  line-height: 1;
+  font-size: 1.2rem;
+}
+
+.os-list a:hover {
+  background-color: #2da690;
+  transition: all 0.3s ease;
+}
+
+.os-list a:hover i {
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+/*@@@@@@@@@@@@ Responsive @@@@@@@@@@@@*/
+@media screen and (max-width: 768px) {
+  /*@@@@@@@@@@@@ Header @@@@@@@@@@@@*/
+  #logo {
+    width: 30%;
+    max-width: 10rem;
+  }
+
+  .mb_nav_wrapper {
+    display: flex;
+    width: 100vw;
+    min-width: 10rem;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    transition: all 0.6s ease;
+    transform: translate(100%);
+  }
+
+  .mb_nav_wrapper.menu-slide {
+    transform: translate(0);
+  }
+
+  .mb_nav_wrapper nav {
+    width: 40vw;
+    min-width: 10rem;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.87);
+    padding: 7.5rem 2.5rem;
+    margin: 0 0 0 auto;
+  }
+
+  .mb_nav_wrapper nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mb_nav_wrapper nav ul li {
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
+
+  .mb_nav_wrapper nav ul li a {
+    padding: 1rem;
+    color: #2da690;
+    display: block;
+  }
+
+  .mb_nav_wrapper nav ul li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2da690;
+    transition: width 0.3s ease;
+  }
+
+  .mb_nav_wrapper nav ul li:hover::after {
+    width: 100%;
+  }
+
+  .hamburger-menu {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    z-index: 3;
+    color: #2da690;
+    position: relative;
+  }
+
+  .hamburger-menu .bar {
+    background-color: #2da690;
+    width: 2rem;
+    height: 2px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.2s ease;
+  }
+
+  .hamburger-menu .bar-top {
+    top: 10px;
+  }
+
+  .hamburger-menu .bar-mid {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hamburger-menu .bar-bottom {
+    bottom: 10px;
+  }
+
+  .hamburger-menu #menu-btn {
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .hamburger-menu.close .bar-top {
+    transform: translate(-50%, 0.8rem) rotate(45deg);
+  }
+
+  .hamburger-menu.close .bar-mid {
+    opacity: 0;
+  }
+
+  .hamburger-menu.close .bar-bottom {
+    transform: translate(-50%, -0.8rem) rotate(-45deg);
+  }
+
+  body.noscroll {
+    overflow: hidden;
+  }
+
+  .section-inner {
+    padding: 0 2.5rem 0 2.5rem;
+  }
+
+  /*@@@@@@@@@@@@ Our vision @@@@@@@@@@@@*/
+  .ov-list {
+    flex-direction: column;
+  }
+
+  .ov-text {
+    border: none;
+  }
+
+  .ov-list li:first-child,
+  .ov-list li:last-child {
+    padding: 0;
+  }
+
+  .ov-list li p {
+    margin: 0 0 0.5rem;
+  }
+
+  .ov-list li p:last-child {
+    margin: 0 0 1.5rem;
+  }
+
+  .ov-text p br {
+    display: none;
+  }
+
+  /*@@@@@@@@@@@@ About us @@@@@@@@@@@@*/
+  .about-us-info {
+    flex-direction: column;
+  }
+
+  .info-txt {
+    margin: 2.5rem auto 0;
+  }
+
+  .info-txt {
+    order: 2;
+  }
+
+  .info-img {
+    order: 1;
+  }
+
+  .info-img figure {
+    position: relative;
+  }
+
+  .info-img figure img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info-img figure:after {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 75%;
+  }
+
+  /*@@@@@@@@@@@@ Recruit @@@@@@@@@@@@*/
+  .job-list li {
+    max-width: calc(50% - 1rem);
+    margin: 0 2rem 2rem 0;
+  }
+
+  .job-list li:nth-child(2n) {
+    max-width: calc(50% - 1rem);
+    margin: 0 0 2rem 0;
+  }
+
+  .job-list li:last-child {
+    margin: 0;
+  }
+
+  .job-list {
+    flex-wrap: wrap;
+  }
+
+  /*@@@@@@@@@@@@ Footer @@@@@@@@@@@@*/
+  .company-info {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  section {
+    padding: 5rem 0 5rem 0;
+  }
+
+  .section-inner {
+    padding: 0 1.5rem 0 1.5rem;
+  }
+
+  /*@@@@@@@@@@@@ Header @@@@@@@@@@@@*/
+  #header-wrap {
+    padding: 1.5rem;
+  }
+
+  .header-inner #logo {
+    width: 50%;
+  }
+
+  .hamburger-menu {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .hamburger-menu .bar {
+    width: 100%;
+  }
+
+  .hamburger-menu .bar-top {
+    top: 0;
+  }
+
+  .hamburger-menu .bar-bottom {
+    bottom: 0;
+  }
+
+  /*@@@@@@@@@@@@ Our service @@@@@@@@@@@@*/
+  .our-service-list {
+    flex-direction: column;
+  }
+
+  .our-service-list li {
+    display: block;
+    margin: 0 auto 3.5rem;
+  }
+
+  .our-service-list li .img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .our-service-list li .text {
+    width: 100%;
+    margin: 0;
+  }
+
+  .our-service-list li .text a {
+    padding: 1.5rem;
+  }
+
+  .our-service-list li .text h2 {
+    margin: 0;
+  }
+
+  .our-service-list li .text .main-title {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
+  .our-service-list li .text .main-title br {
+    display: none;
+  }
+
+  .our-service-list li .text .details {
+    padding: 0;
+    margin: 0;
+  }
+
+  /*@@@@@@@@@@@@ Our vision @@@@@@@@@@@@*/
+  .ov-list .ov-text {
+    text-align: left;
+    padding: 0;
+  }
+
+  /*@@@@@@@@@@@@ News @@@@@@@@@@@@*/
+  .news-list .table {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .news-list article .img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .news-list article .txt {
+    margin: 0.5rem auto 0;
+  }
+
+  .news-list article .entry-title a {
+    letter-spacing: 0;
+    font-size: 0.9rem;
+  }
+
+  /*@@@@@@@@@@@@ About us @@@@@@@@@@@@*/
+  #ov-sub-title {
+    text-align: left;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  #ov-sub-title br {
+    display: none;
+  }
+
+  table tr td:first-child {
+    max-width: 30%;
+  }
+
+  /*@@@@@@@@@@@@ Recruit @@@@@@@@@@@@*/
+  .job-list {
+    flex-wrap: wrap;
+  }
+
+  .job-list #mb-job {
+    max-width: 100%;
+    margin: 0 0 1rem 0;
+  }
+
+  /*@@@@@@@@@@@@ Footer @@@@@@@@@@@@*/
+  #footer-inner {
+    flex-direction: column;
+  }
+
+  .footer-inner {
+    padding: 0 1.5rem 0 1.5rem;
+    max-width: calc(1120px + 1.5rem * 2);
+  }
+  .company-info {
+    order: 2;
+    margin: 2.5rem auto 0;
+    width: 100%;
+  }
+
+  .nav-area {
+    order: 1;
+  }
+
+  .nav-area ul {
+    justify-content: space-between;
+    text-align: left;
+    overflow-x: scroll;
+    font-size: 0.8rem;
+  }
+
+  .nav-area .footer-nav {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    padding-bottom: 0.5rem;
+  }
+
+  .os-list {
+    flex-direction: column;
+  }
+
+  .os-list #mb-margin {
+    margin: 0 0 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .os-list li a {
+    width: 100%;
+  }
+
+  .os-list li a i {
+    vertical-align: top;
+    margin-left: 0;
+  }
+}
+
+/*@@@@@@@@@@@@ Animation setting @@@@@@@@@@@@*/
+@keyframes navSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes titleSlideDown {
+  from {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 1.2s ease forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 1.2s ease forwards;
+}
+
+.animate-titleSlideDown {
+  animation: titleSlideDown 1.2s ease forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 1.2s ease forwards;
+}
